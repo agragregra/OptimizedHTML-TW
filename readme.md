@@ -54,7 +54,7 @@
 
 <h4>Include parts of HTML components:</h4>
 
-<p>All HTML files src placed in the folder "app/html/*". Included components located in "app/html/parts".</p>
+<p>All HTML files src placed in the folder "app/html/*". Included components located in "app/html/parts/".</p>
 
 <h2>Features</h2>
 
