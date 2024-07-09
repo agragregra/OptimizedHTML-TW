@@ -2,7 +2,7 @@
 <p>Lightweight production-ready Gulp starter with Tailwind CSS.</p>
 
 <p>
-	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/images/src/preview.jpg" alt="Start HTML Template">
+	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/img/src/preview.jpg" alt="Start HTML Template">
 </p>
 
 <p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Preprocessors (Sass, Scss, CSS)</strong>, <strong>cssnano</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Autoprefixer</strong>, <strong>webpack-stream</strong>, <strong>Babel</strong>, <strong>Rsync</strong>, <strong>build</strong>, <strong>gulp-imagemin</strong> and <strong>Tailwind</strong>. It uses best practices of images compression, JavaScript, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
@@ -44,8 +44,8 @@
 	<li><strong>Main Sass</strong> src file located in <strong>app/styles/main.sass</strong></li>
 	<li>All <strong>compressed styles</strong> located in <strong>app/css/main.min.css</strong></li>
 	<li>Project <strong>styles config</strong> placed in <strong>app/styles/_config.sass</strong></li>
-	<li>All <strong>src images</strong> placed in <strong>app/images/src/</strong> folder</li>
-	<li>All <strong>compressed images</strong> placed in <strong>app/images/dist/</strong> folder</li>
+	<li>All <strong>src images</strong> placed in <strong>app/img/src/</strong> folder</li>
+	<li>All <strong>compressed images</strong> placed in <strong>app/img/dist/</strong> folder</li>
 </ol>
 
 <h4>Include parts of Preprocessor code:</h4>
