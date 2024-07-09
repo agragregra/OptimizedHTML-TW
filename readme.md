@@ -5,7 +5,7 @@
 	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/img/src/preview.jpg" alt="Start HTML Template">
 </p>
 
-<p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Preprocessors (Sass, Scss, CSS)</strong>, <strong>cssnano</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Autoprefixer</strong>, <strong>webpack-stream</strong>, <strong>Babel</strong>, <strong>Rsync</strong>, <strong>build</strong>, <strong>gulp-imagemin</strong> and <strong>Tailwind</strong>. It uses best practices of images compression, JavaScript, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
+<p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Preprocessors (Sass, Scss, CSS, HTML file-include with options)</strong>, <strong>cssnano</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Autoprefixer</strong>, <strong>webpack-stream</strong>, <strong>Babel</strong>, <strong>Rsync</strong>, <strong>build</strong>, <strong>gulp-imagemin</strong> and <strong>Tailwind</strong>. It uses best practices of images compression, JavaScript, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
 
 <h2>How to use OptimizedHTML TW</h2>
 
@@ -22,7 +22,6 @@
 <h2>Main Gulpfile.js options:</h2>
 
 <ul>
-	<li><strong>preprocessor</strong>: Preprocessor Sass, Scss + native CSS. 'sass' also work with the Scss syntax in "styles/sass/blocks/" folder</li>
 	<li><strong>fileswatch</strong>: List of files extensions for watching & hard reload</li>
 </ul>
 
@@ -30,7 +29,7 @@
 
 <ul>
 	<li><strong>gulp</strong>: run default gulp task (scripts, images, styles, browsersync, startwatch)</li>
-	<li><strong>scripts, styles, images, assets</strong>: build assets (css, js, images or all)</li>
+	<li><strong>scripts, styles, images, assets, posthtml</strong>: build assets (html, css, js, images or all)</li>
 	<li><strong>deploy</strong>: project deployment via <strong>RSYNC</strong></li>
 	<li><strong>build</strong>: project build</li>
 </ul>
@@ -40,6 +39,7 @@
 <h4>src's & dist's:</h4>
 
 <ol>
+	<li><strong>HTML source files and components</strong> located in <strong>app/html | app/html/parts</strong></li>
 	<li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | app.min.js</strong></li>
 	<li><strong>Main Sass</strong> src file located in <strong>app/styles/main.sass</strong></li>
 	<li>All <strong>compressed styles</strong> located in <strong>app/css/main.min.css</strong></li>

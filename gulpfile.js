@@ -4,6 +4,7 @@ import pkg from 'gulp'
 const { src, dest, parallel, series, watch } = pkg
 
 import browserSync     from 'browser-sync'
+import fileinclude     from 'gulp-file-include'
 import webpackStream   from 'webpack-stream'
 import webpack         from 'webpack'
 import TerserPlugin    from 'terser-webpack-plugin'
@@ -45,6 +46,12 @@ function styles() {
 		.pipe(concat('app.min.css'))
 		.pipe(dest('app/css'))
 		.pipe(browserSync.stream())
+}
+
+function posthtml() {
+	return src('app/html/*.html')
+	.pipe(fileinclude({ basepath: 'app/html/parts' }))
+	.pipe(dest('app'))
 }
 
 function scripts() {
@@ -127,11 +134,11 @@ function startwatch() {
 	watch([`app/styles/**/*`], { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch(['app/img/src/**/*'], { usePolling: true }, images)
-	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, styles).on('change', browserSync.reload)
+	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, (styles, posthtml)).on('change', browserSync.reload)
 }
 
-export { scripts, styles, images, deploy }
+export { scripts, styles, images, deploy, posthtml }
 export let assets = series(scripts, styles, images)
-export let build = series(cleandist, images, scripts, styles, buildcopy)
+export let build = series(cleandist, images, scripts, styles, posthtml, buildcopy)
 
 export default series(scripts, styles, images, parallel(browsersync, startwatch))
