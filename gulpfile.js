@@ -35,7 +35,7 @@ function browsersync() {
 }
 
 function styles() {
-	return src([`app/styles/*.*`, `app/styles/**/*.css`, `!app/styles/_*.*`])
+	return src(['app/styles/*.*', 'app/styles/**/*.css', '!app/styles/_*.*'])
 		.pipe(sassglob())
 		.pipe(sass({ 'include css': true }).on('error', sass.logError))
 		.pipe(postCss([
@@ -131,7 +131,7 @@ function deploy() {
 }
 
 function startwatch() {
-	watch([`app/styles/**/*`], { usePolling: true }, styles)
+	watch(['app/styles/**/*'], { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch(['app/img/src/**/*'], { usePolling: true }, images)
 	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, (styles, posthtml)).on('change', browserSync.reload)
