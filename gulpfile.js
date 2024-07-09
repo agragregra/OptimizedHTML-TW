@@ -38,18 +38,7 @@ function styles() {
 		.pipe(sassglob())
 		.pipe(sass({ 'include css': true }).on('error', sass.logError))
 		.pipe(postCss([
-			tailwindcss({
-				darkMode: 'selector',
-				content: [ 'app/**/*.html' ],
-				theme: {
-					extend: {
-						colors: {
-							'accent': 'var(--color-accent)', // styles/_config.sass
-						},
-					},
-				},
-				plugins: []
-			}),
+			tailwindcss('tailwind.config.js'),
 			autoprefixer({ grid: 'autoplace' }),
 			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
 		]))
