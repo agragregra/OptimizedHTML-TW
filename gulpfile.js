@@ -42,7 +42,11 @@ function styles() {
 				darkMode: 'selector',
 				content: [ 'app/**/*.html' ],
 				theme: {
-					extend: {},
+					extend: {
+						colors: {
+							'accent': 'orange',
+						},
+					},
 				},
 				plugins: []
 			}),
