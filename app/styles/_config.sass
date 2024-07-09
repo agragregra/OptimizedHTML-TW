@@ -1,0 +1,62 @@
+// IMPORT TAILWIND
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+// USER VARIABLES SECTION (OPT. FOR TW)
+
+// $accent: orange // Accent Color
+// $fontsize: 17px // Body Font Size
+// $lineheight: 1.65 // Document Line Height
+// $userfont: roboto-oh5, sans-serif // User Font Family
+// $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// IMPORT PLUGINS
+
+// @import 'app/libs/micromodal/micromodal' // Example micromodal.css
+
+// FONTS LOAD SECTION (OPT. FOR TW)
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@if variable-exists(userfont)
+
+	@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+	@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+	@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+	@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
+body
+	@if variable-exists(userfont)
+		font-family: $userfont
+	@if variable-exists(systemfont)
+		font-family: $systemfont
+	@if variable-exists(fontsize)
+		font-size: $fontsize
+	@if variable-exists(lineheight)
+		line-height: $lineheight
+	// min-width: 320px
+	// position: relative
+	// overflow-x: hidden
+
+// GLOBAL CSS SETTINGS (OPT.)
+
+::placeholder
+	// color: #666
+
+::selection
+	// background-color: $accent
+	// color: #fff
+
+input, textarea
+	// outline: none
+	// &:focus:required:invalid
+	// 	border-color: red
+	// &:required:valid
+	// 	border-color: green
