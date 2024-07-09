@@ -50,9 +50,13 @@
 
 <h4>Include parts of Preprocessor code:</h4>
 
-<p>All included parts of preprocessor files (Sass, Scss, CSS) placed in the folder "styles/blocks/". Any number of preprocessor files can be placed here and in any order. They will be automatically included in the "styles/main.sass" file and processed.</p>
+<p>All included parts of preprocessor files (Sass, Scss, CSS) placed in the folder "app/styles/blocks/". Any number of preprocessor files can be placed here and in any order. They will be automatically included in the "app/styles/main.sass" file and processed.</p>
 
-<h2>Included features</h2>
+<h4>Include parts of HTML components:</h4>
+
+<p>All HTML files src placed in the folder "app/html/*". Included components located in "app/html/parts".</p>
+
+<h2>Features</h2>
 
 <strong>Tailwind</strong>
 
