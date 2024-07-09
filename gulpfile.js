@@ -49,7 +49,7 @@ function styles() {
 }
 
 function posthtml() {
-	return src('app/html/*.html')
+	return src(['app/html/**/*.html', '!app/html/parts/**/*'])
 	.pipe(fileinclude({ basepath: 'app/html/parts' }))
 	.pipe(dest('app'))
 }
@@ -141,4 +141,4 @@ export { scripts, styles, images, deploy, posthtml }
 export let assets = series(scripts, styles, images)
 export let build = series(cleandist, images, scripts, styles, posthtml, buildcopy)
 
-export default series(scripts, styles, images, parallel(browsersync, startwatch))
+export default series(scripts, styles, posthtml, images, parallel(browsersync, startwatch))

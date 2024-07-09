@@ -1,6 +1,6 @@
 module.exports = {
 	darkMode: 'selector',
-	content: [ 'app/**/*.html', 'app/js/*.js', '!app/js/*.min.js' ],
+	content: [ 'app/html/**/*.html', 'app/js/*.js', '!app/js/*.min.js' ],
 	theme: {
 		extend: {
 			colors: {
