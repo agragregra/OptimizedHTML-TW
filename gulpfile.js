@@ -44,7 +44,7 @@ function styles() {
 				theme: {
 					extend: {
 						colors: {
-							'accent': 'orange',
+							'accent': 'var(--color-accent)',
 						},
 					},
 				},
