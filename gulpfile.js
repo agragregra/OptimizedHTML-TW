@@ -44,7 +44,7 @@ function styles() {
 				theme: {
 					extend: {
 						colors: {
-							'accent': 'var(--color-accent)',
+							'accent': 'var(--color-accent)', // styles/_config.sass
 						},
 					},
 				},
