@@ -33,6 +33,27 @@ function browsersync() {
 	})
 }
 
+function styles() {
+	return src([`app/styles/*.*`, `app/styles/**/*.css`, `!app/styles/_*.*`])
+		.pipe(sassglob())
+		.pipe(sass({ 'include css': true }).on('error', sass.logError))
+		.pipe(postCss([
+			tailwindcss({
+				darkMode: 'selector',
+				content: [ 'app/**/*.html' ],
+				theme: {
+					extend: {},
+				},
+				plugins: []
+			}),
+			autoprefixer({ grid: 'autoplace' }),
+			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+		]))
+		.pipe(concat('app.min.css'))
+		.pipe(dest('app/css'))
+		.pipe(browserSync.stream())
+}
+
 function scripts() {
 	return src(['app/js/*.js', '!app/js/*.min.js'])
 		.pipe(webpackStream({
@@ -67,27 +88,6 @@ function scripts() {
 		})
 		.pipe(concat('app.min.js'))
 		.pipe(dest('app/js'))
-		.pipe(browserSync.stream())
-}
-
-function styles() {
-	return src([`app/styles/*.*`, `app/styles/**/*.css`, `!app/styles/_*.*`])
-		.pipe(sassglob())
-		.pipe(sass({ 'include css': true }).on('error', sass.logError))
-		.pipe(postCss([
-			tailwindcss({
-				darkMode: 'selector',
-				content: [ 'app/**/*.html' ],
-				theme: {
-					extend: {},
-				},
-				plugins: []
-			}),
-			autoprefixer({ grid: 'autoplace' }),
-			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-		]))
-		.pipe(concat('app.min.css'))
-		.pipe(dest('app/css'))
 		.pipe(browserSync.stream())
 }
 
