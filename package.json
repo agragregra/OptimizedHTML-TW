@@ -1,6 +1,6 @@
 {
 	"name": "optimizedhtml",
-	"version": "1.0",
+	"version": "1.0.0",
 	"description": "OptimizedHTML TW - Lightweight Gulp Starter with Tailwind",
 	"main": "index.js",
 	"author": "WebDesign Master",
