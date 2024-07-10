@@ -131,14 +131,14 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(['app/styles/**/*'], { usePolling: true }, styles)
 	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
 	watch(['app/img/src/**/*'], { usePolling: true }, images)
-	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, (styles, posthtml)).on('change', browserSync.reload)
+	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, series(posthtml, styles)).on('change', browserSync.reload)
+	watch(['app/styles/**/*'], { usePolling: true }, styles)
 }
 
-export { scripts, styles, images, deploy, posthtml }
-export let assets = series(scripts, styles, images)
-export let build = series(cleandist, images, scripts, styles, posthtml, buildcopy)
+export { scripts, posthtml, styles, images, deploy }
+export let assets = series(scripts, posthtml, styles, images)
+export let build = series(cleandist, images, scripts, posthtml, styles, buildcopy)
 
-export default series(scripts, styles, posthtml, images, parallel(browsersync, startwatch))
+export default series(scripts, posthtml, styles, images, parallel(browsersync, startwatch))
