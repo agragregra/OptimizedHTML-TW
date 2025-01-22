@@ -37,7 +37,11 @@ function browsersync() {
 function styles() {
 	return src(['app/styles/*.*', 'app/styles/**/*.css', '!app/styles/_*.*'])
 		.pipe(sassglob())
-		.pipe(sass({ 'include css': true }).on('error', sass.logError))
+		.pipe(sass({
+			'include css': true,
+			silenceDeprecations: ['legacy-js-api', 'mixed-decls', 'color-functions', 'global-builtin', 'import'],
+			loadPaths: ['./']
+		}).on('error', sass.logError))
 		.pipe(postCss([
 			tailwindcss('tailwind.config.js'),
 			autoprefixer({ grid: 'autoplace' }),
