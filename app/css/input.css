@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-accent: orange;
+	--font-sans: roboto-tw;
+}
+
+body {
+	line-height: 1.65;
+}
+
+[data-mode].active {
+	@apply bg-accent text-amber-50;
+}

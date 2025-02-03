@@ -3,63 +3,42 @@ let fileswatch = 'html,htm,txt,json,md,woff2' // List of files extensions for wa
 import pkg from 'gulp'
 const { src, dest, parallel, series, watch } = pkg
 
-import browserSync     from 'browser-sync'
-import fileinclude     from 'gulp-file-include'
-import webpackStream   from 'webpack-stream'
-import webpack         from 'webpack'
-import TerserPlugin    from 'terser-webpack-plugin'
-import tailwindcss     from 'tailwindcss'
-import gulpSass        from 'gulp-sass'
-import * as dartSass   from 'sass'
-const  sass            = gulpSass(dartSass)
-import sassglob        from 'gulp-sass-glob'
-import postCss         from 'gulp-postcss'
-import cssnano         from 'cssnano'
-import autoprefixer    from 'autoprefixer'
-import imagemin        from 'gulp-imagemin'
-import changed         from 'gulp-changed'
-import concat          from 'gulp-concat'
-import rsync           from 'gulp-rsync'
-import { deleteAsync } from 'del'
+import browserSync   from 'browser-sync'
+import fileinclude   from 'gulp-file-include'
+import webpackStream from 'webpack-stream'
+import webpack       from 'webpack'
+import TerserPlugin  from 'terser-webpack-plugin'
+import tailwindcss   from '@tailwindcss/postcss'
+import postCss       from 'gulp-postcss'
+import imagemin      from 'gulp-imagemin'
+import changed       from 'gulp-changed'
+import rename        from 'gulp-rename'
+import rsync         from 'gulp-rsync'
+import {deleteAsync} from 'del'
 
 function browsersync() {
 	browserSync.init({
 		server: {
-			baseDir: 'app/'
+			baseDir: 'dist/'
 		},
 		ghostMode: { clicks: false },
 		notify: false,
-		online: true,
-		// tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
+		online: true
 	})
 }
 
 function styles() {
-	return src(['app/styles/*.*', 'app/styles/**/*.css', '!app/styles/_*.*'])
-		.pipe(sassglob())
-		.pipe(sass({
-			'include css': true,
-			silenceDeprecations: ['legacy-js-api', 'mixed-decls', 'color-functions', 'global-builtin', 'import'],
-			loadPaths: ['./']
-		}).on('error', sass.logError))
+	return src('app/css/input.css')
 		.pipe(postCss([
-			tailwindcss('tailwind.config.js'),
-			autoprefixer({ grid: 'autoplace' }),
-			cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-		]))
-		.pipe(concat('app.min.css'))
-		.pipe(dest('app/css'))
+			tailwindcss({ optimize: true })
+		])).on('error', function handleError() { this.emit('end') })
+		.pipe(rename('output.min.css'))
+		.pipe(dest('dist/css'))
 		.pipe(browserSync.stream())
 }
 
-function posthtml() {
-	return src(['app/html/**/*.html', '!app/html/parts/**/*'])
-	.pipe(fileinclude({ basepath: 'app/html/parts' }))
-	.pipe(dest('app'))
-}
-
 function scripts() {
-	return src(['app/js/*.js', '!app/js/*.min.js'])
+	return src('app/js/app.js')
 		.pipe(webpackStream({
 			mode: 'production',
 			performance: { hints: false },
@@ -87,29 +66,29 @@ function scripts() {
 					})
 				]
 			},
-		}, webpack)).on('error', function handleError() {
-			this.emit('end')
-		})
-		.pipe(concat('app.min.js'))
-		.pipe(dest('app/js'))
+		}, webpack)).on('error', function handleError() { this.emit('end') })
+		.pipe(rename('app.min.js'))
+		.pipe(dest('dist/js'))
 		.pipe(browserSync.stream())
 }
 
 function images() {
-	return src(['app/img/src/**/*'], { encoding: false })
+	return src(['app/img/**/*'], { encoding: false })
 		.pipe(changed('app/img/dist'))
 		.pipe(imagemin())
-		.pipe(dest('app/img/dist'))
+		.pipe(dest('dist/img'))
 		.pipe(browserSync.stream())
+}
+
+function posthtml() {
+	return src(['app/html/**/*.html', '!app/html/parts/**/*'])
+	.pipe(fileinclude({ basepath: 'app/html/parts' }))
+	.pipe(dest('dist'))
 }
 
 function buildcopy() {
 	return src([
-		'{app/js,app/css}/*.min.*',
-		'app/img/**/*.*',
-		'!app/img/src/**/*',
 		'app/fonts/**/*',
-		'app/*.html'
 	], { base: 'app/', encoding: false })
 	.pipe(dest('dist'))
 }
@@ -135,14 +114,13 @@ function deploy() {
 }
 
 function startwatch() {
-	watch(['app/js/**/*.js', '!app/js/**/*.min.js'], { usePolling: true }, scripts)
-	watch(['app/img/src/**/*'], { usePolling: true }, images)
-	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, series(posthtml, styles)).on('change', browserSync.reload)
-	watch(['app/styles/**/*'], { usePolling: true }, styles)
+	watch(['app/js/app.js'], { usePolling: true }, scripts)
+	watch(['app/img/**/*'], { usePolling: true }, images)
+	watch([`app/**/*.{${fileswatch}}`], { usePolling: true }, series(posthtml, buildcopy, styles)).on('change', browserSync.reload)
+	watch(['app/css/**/*'], { usePolling: true }, styles)
 }
 
-export { scripts, posthtml, styles, images, deploy }
-export let assets = series(scripts, posthtml, styles, images)
-export let build = series(cleandist, images, scripts, posthtml, styles, buildcopy)
+export { scripts, styles, images, deploy }
+export let build = series(cleandist, posthtml, buildcopy, styles, scripts, images)
 
-export default series(scripts, posthtml, styles, images, parallel(browsersync, startwatch))
+export default series(cleandist, posthtml, buildcopy, styles, scripts, images, parallel(browsersync, startwatch))

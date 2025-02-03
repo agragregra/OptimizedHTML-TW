@@ -1,11 +1,16 @@
 <h1>OptimizedHTML TW</h1>
+
 <p>Lightweight production-ready Gulp starter with Tailwind CSS.</p>
+
+<h2>Features</h2>
+
+<strong>Tailwind, Browsersync, JS Bundling, Image Optimize, Rsync Deploy</strong>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/img/src/preview.jpg" alt="Start HTML Template">
 </p>
 
-<p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Preprocessors (Sass, Scss, CSS, HTML file-include with options)</strong>, <strong>cssnano</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Autoprefixer</strong>, <strong>webpack-stream</strong>, <strong>Babel</strong>, <strong>Rsync</strong>, <strong>build</strong>, <strong>gulp-imagemin</strong> and <strong>Tailwind</strong>. It uses best practices of images compression, JavaScript, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
+<p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Tailwind</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Webpack</strong>, <strong>Babel</strong>, <strong>Image Compression</strong> and <strong>Rsync</strong>. It uses best practices of images compression, JavaScript bundling, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
 
 <h2>How to use OptimizedHTML TW</h2>
 
@@ -28,8 +33,8 @@
 <h2>Main Gulp tasks:</h2>
 
 <ul>
-	<li><strong>gulp</strong>: run default gulp task (scripts, images, styles, browsersync, startwatch)</li>
-	<li><strong>scripts, styles, images, assets, posthtml</strong>: build assets (html, css, js, images or all)</li>
+	<li><strong>gulp</strong>: run default gulp task</li>
+	<li><strong>scripts, styles, images</strong>: build assets</li>
 	<li><strong>deploy</strong>: project deployment via <strong>RSYNC</strong></li>
 	<li><strong>build</strong>: project build</li>
 </ul>
@@ -39,26 +44,21 @@
 <h4>src's & dist's:</h4>
 
 <ol>
-	<li><strong>HTML source files and components</strong> located in <strong>app/html | app/html/parts</strong></li>
+	<li><strong>HTML source files and components</strong> located in <strong>app/html/ | app/html/parts/</strong></li>
 	<li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | app.min.js</strong></li>
-	<li><strong>Main Sass</strong> src file located in <strong>app/styles/main.sass</strong></li>
-	<li>All <strong>compressed styles</strong> located in <strong>app/css/main.min.css</strong></li>
-	<li>Project <strong>styles config</strong> placed in <strong>app/styles/_config.sass</strong></li>
-	<li>All <strong>src images</strong> placed in <strong>app/img/src/</strong> folder</li>
-	<li>All <strong>compressed images</strong> placed in <strong>app/img/dist/</strong> folder</li>
+	<li><strong>input.css</strong> Tailwind file located in <strong>app/css/input.css</strong></li>
+	<li>All <strong>compressed styles</strong> located in <strong>dist/css/output.min.css</strong></li>
+	<li>All <strong>src images</strong> placed in <strong>app/img/</strong> folder</li>
+	<li>All <strong>compressed images</strong> placed in <strong>dist/img/</strong> folder</li>
 </ol>
 
-<h4>Include parts of Preprocessor code:</h4>
+<h4>Include CSS parts:</h4>
 
-<p>All included parts of preprocessor files (Sass, Scss, CSS) placed in the folder "app/styles/blocks/". Any number of preprocessor files can be placed here and in any order. They will be automatically included in the "app/styles/main.sass" file and processed.</p>
+<p>All included parts of CSS files (like fonts.css) placed in the folder "app/css/".</p>
 
 <h4>Include parts of HTML components:</h4>
 
 <p>All HTML files src placed in the folder "app/html/*". Included components located in "app/html/parts/".</p>
-
-<h2>Features</h2>
-
-<strong>Tailwind</strong>
 
 <h2>Helpers</h2>
 
@@ -67,7 +67,6 @@
 <p>The woff2 fonts are currently recommended.</p>
 
 <p>Converter recommended: <a href="https://www.fontsquirrel.com/tools/webfont-generator">https://www.fontsquirrel.com/tools/webfont-generator</a><br>
-Or get from google-webfonts-helper: <a href="https://google-webfonts-helper.herokuapp.com/fonts">https://google-webfonts-helper.herokuapp.com/fonts</a></p>
 
 <h3>font-weight helper</h3>
 
