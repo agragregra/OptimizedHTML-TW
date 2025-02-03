@@ -1,7 +1,5 @@
 <h1>OptimizedHTML TW</h1>
 
-<p>Lightweight production-ready Gulp starter with Tailwind CSS.</p>
-
 <h2>Features</h2>
 
 <strong>Tailwind, Browsersync, JS Bundling, Image Optimize, Rsync Deploy</strong>
