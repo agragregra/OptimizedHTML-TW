@@ -36,7 +36,7 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 <ul>
 	<li><strong>gulp</strong>: run default gulp task</li>
 	<li><strong>scripts, styles, images</strong>: build assets</li>
-	<li><strong>deploy</strong>: project deployment via <strong>RSYNC</strong></li>
+	<li><strong>deploy</strong>: project deployment via <strong>Rsync</strong></li>
 	<li><strong>build</strong>: project build</li>
 </ul>
 
