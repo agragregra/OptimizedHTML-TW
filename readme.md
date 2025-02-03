@@ -31,15 +31,6 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 	<li><strong>fileswatch</strong>: List of files extensions for watching & hard reload</li>
 </ul>
 
-<h2>Main Gulp tasks:</h2>
-
-<ul>
-	<li><strong>gulp</strong>: run default gulp task</li>
-	<li><strong>scripts, styles, images</strong>: build assets</li>
-	<li><strong>deploy</strong>: project deployment via <strong>Rsync</strong></li>
-	<li><strong>build</strong>: project build</li>
-</ul>
-
 <h2>Basic rules</h2>
 
 <h4>src's & dist's:</h4>
