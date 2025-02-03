@@ -2,7 +2,7 @@
 
 <h2>Features</h2>
 
-<strong>Tailwind, Browsersync, JS Bundling, Image Optimize, Rsync Deploy</strong>
+<strong>Tailwind, Browsersync, JS Bundling, Image Optimize, Component Method, Rsync Deploy</strong>
 
 <p>
 	<img src="https://raw.githubusercontent.com/agragregra/oht/master/dist/img/preview.jpg" alt="Start HTML Template">
