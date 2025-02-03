@@ -25,12 +25,6 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 	<li>Build: <strong>npm run build</strong></li>
 </ol>
 
-<h2>Main Gulpfile.js options:</h2>
-
-<ul>
-	<li><strong>fileswatch</strong>: List of files extensions for watching & hard reload</li>
-</ul>
-
 <h2>Basic rules</h2>
 
 <h4>src's & dist's:</h4>
