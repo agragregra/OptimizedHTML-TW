@@ -5,7 +5,7 @@
 <strong>Tailwind, Browsersync, JS Bundling, Image Optimize, Rsync Deploy</strong>
 
 <p>
-	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/img/src/preview.jpg" alt="Start HTML Template">
+	<img src="https://raw.githubusercontent.com/agragregra/oht/master/app/img/preview.jpg" alt="Start HTML Template">
 </p>
 
 <p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Tailwind</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Webpack</strong>, <strong>Babel</strong>, <strong>Image Compression</strong> and <strong>Rsync</strong>. It uses best practices of images compression, JavaScript bundling, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
