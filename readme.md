@@ -124,9 +124,3 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml appl
 
 &lt;/ifModule&gt;
 </pre>
-
-<h2>Issues</h2>
-
-<ol>
-	<li>Long Preprocessor compile: Disable the "safe write" option in PHPStorm/WebStorm settings.</li>
-</ol>
