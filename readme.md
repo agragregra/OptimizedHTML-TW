@@ -46,7 +46,7 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 
 <ol>
 	<li><strong>HTML source files and components</strong> located in <strong>app/html/ | app/html/parts/</strong></li>
-	<li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | app.min.js</strong></li>
+	<li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | dist/js/app.min.js</strong></li>
 	<li><strong>input.css</strong> Tailwind file located in <strong>app/css/input.css</strong></li>
 	<li>All <strong>compressed styles</strong> located in <strong>dist/css/output.min.css</strong></li>
 	<li>All <strong>src images</strong> placed in <strong>app/img/</strong> folder</li>
