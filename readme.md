@@ -14,7 +14,9 @@
 
 <p>Clone into the current folder with remove all unnecessary (one command):</p>
 
-<pre>git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md .git</pre>
+```
+git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md .git
+```
 
 <ol>
 	<li>Clone or <a href="https://github.com/agragregra/OptimizedHTML-TW/archive/master.zip">Download</a> <strong>OptimizedHTML TW</strong> from GitHub</li>
