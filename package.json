@@ -2,9 +2,14 @@
 	"name": "optimizedhtml-tw",
 	"version": "1.0.0",
 	"description": "OptimizedHTML TW - Lightweight Gulp Starter with Tailwind",
+	"main": "index.js",
 	"author": "WebDesign Master",
 	"type": "module",
 	"license": "ISC",
+	"scripts": {
+		"dev": "gulp",
+		"build": "gulp build"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.26.7",
 		"@babel/preset-env": "^7.26.7",
