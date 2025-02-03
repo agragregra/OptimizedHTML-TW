@@ -22,6 +22,7 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 	<li>Clone or <a href="https://github.com/agragregra/OptimizedHTML-TW/archive/master.zip">Download</a> <strong>OptimizedHTML TW</strong> from GitHub</li>
 	<li>Install Node Modules: <strong>npm i</strong></li>
 	<li>Run: <strong>npm run dev</strong></li>
+	<li>Build: <strong>npm run build</strong></li>
 </ol>
 
 <h2>Main Gulpfile.js options:</h2>
