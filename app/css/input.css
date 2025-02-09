@@ -4,15 +4,15 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-	--color-accent: orange;
-	--font-sans: roboto-tw;
+  --color-accent: orange;
+  --font-sans: roboto-tw;
 }
 
 body {
-	line-height: 1.65;
-	@apply dark:bg-gray-900 dark:text-white;
+  line-height: 1.65;
+  @apply dark:bg-gray-900 dark:text-white;
 }
 
 [data-mode].active {
-	@apply bg-accent text-amber-50;
+  @apply bg-accent text-amber-50;
 }

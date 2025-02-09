@@ -3,40 +3,40 @@
 
 <head>
 
-	<meta charset="utf-8">
-	<!-- <base href="/"> -->
+  <meta charset="utf-8">
+  <!-- <base href="/"> -->
 
-	<title>OptimizedHTML TW</title>
-	<meta name="description" content="Startup HTML template OptimizedHTML TW">
+  <title>OptimizedHTML TW</title>
+  <meta name="description" content="Startup HTML template OptimizedHTML TW">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="icon" href="img/favicon.png">
-	<meta property="og:image" content="img/dist/preview.jpg">
+  <link rel="icon" href="img/favicon.png">
+  <meta property="og:image" content="img/dist/preview.jpg">
 
-	<link rel="stylesheet" href="css/output.min.css">
-	<script src="js/app.min.js" defer></script>
+  <link rel="stylesheet" href="css/output.min.css">
+  <script src="js/app.min.js" defer></script>
 
 </head>
 
 <body>
 
-	@@include('light-dark/index.html')
+  @@include('light-dark/index.html')
 
-	@@include('hero-example.html')
+  @@include('hero-example.html')
 
-	<div class="grid grid-cols-2 max-w-[720] mx-auto">
-			@@include('component-example.html', {
-				'name': 'Эрин Линдфорд',
-				'desc': 'Инженер по продукту',
-				'class': 'component-example',
-			})
-			@@include('component-example.html', {
-				'name': 'Маркус Палмейра',
-				'desc': 'Главный связист',
-				'class': 'component-example',
-			})
-	</div>
+  <div class="grid grid-cols-2 max-w-[720] mx-auto">
+    @@include('component-example.html', {
+      'name': 'Эрин Линдфорд',
+      'desc': 'Инженер по продукту',
+      'class': 'component-example',
+    })
+    @@include('component-example.html', {
+      'name': 'Маркус Палмейра',
+      'desc': 'Главный связист',
+      'class': 'component-example',
+    })
+  </div>
 
 </body>
 </html>

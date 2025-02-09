@@ -5,7 +5,7 @@
 <strong>Tailwind, Browsersync, JavaScript Bundling, Image Optimize, Component Method, Rsync Deploy</strong>
 
 <p>
-	<img src="https://raw.githubusercontent.com/agragregra/oht/master/dist/img/preview.jpg" alt="Start HTML Template">
+  <img src="https://raw.githubusercontent.com/agragregra/oht/master/dist/img/preview.jpg" alt="Start HTML Template">
 </p>
 
 <p><strong>OptimizedHTML TW</strong> - lightweight startup environment with <strong>Gulp</strong>, <strong>Tailwind</strong>, <strong>Browsersync</strong>, <strong>PostCSS</strong>, <strong>Webpack</strong>, <strong>Babel</strong>, <strong>Image Compression</strong> and <strong>Rsync</strong>. It uses best practices of images compression, JavaScript bundling, CSS optimizing and contains a <strong>.htaccess</strong> code for resources caching (images, fonts, HTML, CSS, JS and other content types).</p>
@@ -19,10 +19,10 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 ```
 
 <ol>
-	<li>Clone or <a href="https://github.com/agragregra/OptimizedHTML-TW/archive/master.zip">Download</a> <strong>OptimizedHTML TW</strong> from GitHub</li>
-	<li>Install Node Modules: <strong>npm i</strong></li>
-	<li>Run: <strong>npm run dev</strong></li>
-	<li>Build: <strong>npm run build</strong></li>
+  <li>Clone or <a href="https://github.com/agragregra/OptimizedHTML-TW/archive/master.zip">Download</a> <strong>OptimizedHTML TW</strong> from GitHub</li>
+  <li>Install Node Modules: <strong>npm i</strong></li>
+  <li>Run: <strong>npm run dev</strong></li>
+  <li>Build: <strong>npm run build</strong></li>
 </ol>
 
 <h2>Basic rules</h2>
@@ -30,12 +30,12 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 <h4>src's & dist's:</h4>
 
 <ol>
-	<li><strong>HTML source files and components</strong> located in <strong>app/html/ | app/html/parts/</strong></li>
-	<li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | dist/js/app.min.js</strong></li>
-	<li><strong>input.css</strong> Tailwind file located in <strong>app/css/input.css</strong></li>
-	<li>All <strong>compressed styles</strong> located in <strong>dist/css/output.min.css</strong></li>
-	<li>All <strong>src images</strong> placed in <strong>app/img/</strong> folder</li>
-	<li>All <strong>compressed images</strong> placed in <strong>dist/img/</strong> folder</li>
+  <li><strong>HTML source files and components</strong> located in <strong>app/html/ | app/html/parts/</strong></li>
+  <li>All <strong>src | dist scripts</strong> located in <strong>app/js/app.js | dist/js/app.min.js</strong></li>
+  <li><strong>input.css</strong> Tailwind file located in <strong>app/css/input.css</strong></li>
+  <li>All <strong>compressed styles</strong> located in <strong>dist/css/output.min.css</strong></li>
+  <li>All <strong>src images</strong> placed in <strong>app/img/</strong> folder</li>
+  <li>All <strong>compressed images</strong> placed in <strong>dist/img/</strong> folder</li>
 </ol>
 
 <h4>Include CSS parts:</h4>
@@ -57,15 +57,15 @@ git clone https://github.com/agragregra/oht .; rm -rf trunk .gitignore readme.md
 <h3>font-weight helper</h3>
 
 <ul>
-	<li><strong>100</strong> - Thin (Hairline)</li>
-	<li><strong>200</strong> - Extra Light (Ultra Light)</li>
-	<li><strong>300</strong> - Light</li>
-	<li><strong>400</strong> - Regular (Normal)</li>
-	<li><strong>500</strong> - Medium</li>
-	<li><strong>600</strong> - Semi Bold (Demi Bold)</li>
-	<li><strong>700</strong> - Bold</li>
-	<li><strong>800</strong> - Extra Bold (Ultra Bold)</li>
-	<li><strong>900</strong> - Black (Heavy)</li>
+  <li><strong>100</strong> - Thin (Hairline)</li>
+  <li><strong>200</strong> - Extra Light (Ultra Light)</li>
+  <li><strong>300</strong> - Light</li>
+  <li><strong>400</strong> - Regular (Normal)</li>
+  <li><strong>500</strong> - Medium</li>
+  <li><strong>600</strong> - Semi Bold (Demi Bold)</li>
+  <li><strong>700</strong> - Bold</li>
+  <li><strong>800</strong> - Extra Bold (Ultra Bold)</li>
+  <li><strong>900</strong> - Black (Heavy)</li>
 </ul>
 
 <h2>Caching</h2>
