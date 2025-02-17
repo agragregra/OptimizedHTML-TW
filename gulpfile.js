@@ -3,18 +3,22 @@ let fileswatch = 'html,htm,txt,json,md,woff2' // List of files extensions for wa
 import pkg from 'gulp'
 const { src, dest, parallel, series, watch } = pkg
 
-import browserSync   from 'browser-sync'
-import fileinclude   from 'gulp-file-include'
-import webpackStream from 'webpack-stream'
-import webpack       from 'webpack'
-import TerserPlugin  from 'terser-webpack-plugin'
-import tailwindcss   from '@tailwindcss/postcss'
-import postCss       from 'gulp-postcss'
-import imagemin      from 'gulp-imagemin'
-import changed       from 'gulp-changed'
-import rename        from 'gulp-rename'
-import rsync         from 'gulp-rsync'
-import {deleteAsync} from 'del'
+import browserSync      from 'browser-sync'
+import fileinclude      from 'gulp-file-include'
+import webpackStream    from 'webpack-stream'
+import webpack          from 'webpack'
+import TerserPlugin     from 'terser-webpack-plugin'
+import tailwindcss      from '@tailwindcss/postcss'
+import postCss          from 'gulp-postcss'
+import imagemin         from 'imagemin'
+import imageminMozjpeg  from 'imagemin-mozjpeg'
+import imageminPngquant from 'imagemin-pngquant'
+import imageminSvgo     from 'imagemin-svgo'
+import path             from 'path'
+import fs               from 'fs-extra'
+import rename           from 'gulp-rename'
+import rsync            from 'gulp-rsync'
+import {deleteAsync}    from 'del'
 
 function browsersync() {
   browserSync.init({
@@ -66,18 +70,44 @@ function scripts() {
           })
         ]
       },
-    }, webpack)).on('error', function handleError() { this.emit('end') })
+    }, webpack, (err, stats) => {
+      if (err) {
+        console.error('❌ Webpack Error:', err);
+        this.emit('end');
+      }
+      if (stats.hasErrors()) {
+        console.error('❌ Webpack Stats Errors:', stats.toString({ colors: true }));
+        this.emit('end');
+      }
+    }))
+    .on('error', function (err) {
+      console.error('❌ Error in Gulp task scripts:', err.message);
+      this.emit('end');
+    })
     .pipe(rename('app.min.js'))
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream())
 }
 
-function images() {
-  return src(['app/img/**/*'], { encoding: false })
-    .pipe(changed('app/img/dist'))
-    .pipe(imagemin())
-    .pipe(dest('dist/img'))
-    .pipe(browserSync.stream())
+async function images() {
+  try {
+    const files = await imagemin([`app/img/**/*`], {
+      plugins: [
+        imageminMozjpeg({ quality: 90 }),
+        imageminPngquant({ quality: [0.6, 0.8] }),
+        imageminSvgo()
+      ]
+    })
+    for (const v of files) {
+      const relativePath = path.relative('app/img', v.sourcePath)
+      const destPath = path.join('dist/img', relativePath)
+      fs.ensureDirSync(path.dirname(destPath))
+      fs.writeFileSync(destPath, v.data)
+    }
+    console.log('✅ Images optimized successfully.')
+  } catch (err) {
+    console.error('❌ Image Minification Error:', err.message || err)
+  }
 }
 
 function posthtml() {
